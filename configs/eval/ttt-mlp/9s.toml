@@ -20,8 +20,8 @@ latent_channels = 16
 scale_factor = 0.7
 num_denoising_steps = 50
 output_dir = "./output"
-t5_model_dir = TODO
-vae_checkpoint_path = TODO
+t5_model_dir = "/home/hossamamer/.cache/huggingface/hub/models--google--t5-v1_1-xxl/snapshots/3db67ab1af984cf10548a73467f0e5bca2aaaeb2"
+vae_checkpoint_path = "/home/hossamamer/.cache/huggingface/hub/models--zai-org--CogVideoX-5b/snapshots/8fc5b281006c82b82d34fd2543d2f0ebb4e7e321/vae/"
 
 [guider]
 scale = 6
@@ -36,13 +36,13 @@ num_idx = 1000
 quantize_c_noise = false
 
 [parallelism]
-fsdp_unsharded_dtype = 'bfloat16'
+fsdp_unsharded_dtype = "bfloat16"
 dp_replicate = 1
 dp_sharding = 1
 tp_sharding = 1
 
 [remat]
-scan_checkpoint_group_size = 1e6 # avoid checkpoints during eval
+scan_checkpoint_group_size = 1000000  # avoid checkpoints during eval
 
 [wandb]
 project = "cogvideo-sampling"
